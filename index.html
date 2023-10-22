@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+      <title>GM GO - HMS</title>
+      <style>
+         html {
+         scroll-behavior: smooth;
+         }
+         header {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         z-index: 1000;
+         background-color: white;
+         }
+         body {
+         padding-top: 70px;
+         }
+         .anchor-offset:before {
+         display: block;
+         content: " ";
+         margin-top: -70px;
+         height: 70px;
+         visibility: hidden;
+         pointer-events: none;
+         }
+      </style>
+   </head>
+   <body class="bg-gray-200">
+      <!-- Header -->
+      <header class="bg-white p-5 shadow-md fixed top-0 left-0 w-full z-50">
+         <div class="container mx-auto flex flex-wrap justify-between items-center">
+            <div class="flex items-center space-x-2">
+				<a href="./index.html" aria-current="page" class="nav_logo-link w-nav-brand w--current text-blue-500 hover:text-blue-600" aria-label="home">
+					GM GO
+				</a>
+            </div>
+            <!-- Desktop Navigation Links -->
+            <div class="flex items-center space-x-4 hidden md:flex">
+                <nav class="flex space-x-4">
+                  <a href="#homeSection" class="text-blue-500 hover:text-blue-600">Home</a>
+                  <a href="#pricingSection" class="text-blue-500 hover:text-blue-600">Pricing</a>
+                  <a href="#contactSection" class="text-blue-500 hover:text-blue-600">Contact</a>
+                </nav>
+				<a class="bg-blue-500 text-white px-5 py-2 rounded hover:bg-blue-600 ml-4" href="https://calendly.com/meet-pateel/30min" role="button" target="_blank" rel="noopener noreferrer">Book a Demo</a>
+			</div>
+            <!-- Mobile Hamburger Menu -->
+            <button id="menuToggle" class="md:hidden p-2">
+               <div class="w-6 h-0.5 bg-blue-500 mb-1.5"></div>
+               <div class="w-6 h-0.5 bg-blue-500 mb-1.5"></div>
+               <div class="w-6 h-0.5 bg-blue-500"></div>
+            </button>
+         </div>
+         <!-- Mobile Navigation Menu -->
+         <nav id="navMenu" class="hidden md:hidden w-full mt-4 transition-all duration-300">
+            <a href="#homeSection" class="block text-blue-500 hover:text-blue-600 mb-4 text-center">Home</a>
+            <a href="#pricingSection" class="block text-blue-500 hover:text-blue-600 mb-4 text-center">Pricing</a>
+            <a href="#contactSection" class="block text-blue-500 hover:text-blue-600 mb-4 text-center">Contact</a>
+                           <div class="text-center">
+			<a class="bg-blue-500 text-white px-5 py-2 rounded hover:bg-blue-600 w-full mb-4" href="https://calendly.com/meet-pateel/30min" role="button" target="_blank" rel="noopener noreferrer">Book a Demo</a>
+			</div>
+		 </nav>
+      </header>
+      <!-- Main Content -->
+      <main id="homeSection"class="container mx-auto mt-10 p-4 sm:p-5 anchor-offset">
+    <!-- Home Section Content -->
+    <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
+        <!-- Header and Sub-header -->
+        <div class="text-center mb-6">
+            <h1 class="text-3xl font-bold">Streamline Your Reservations with Our Automated System</h1>
+            <p class="text-gray-600 mt-4">Seamlessly export OTA files, compare with your PMS, and get accurate results in no time.</p>
+        </div>
+
+        <!-- Process Flow Image -->
+        <div class="mb-6">
+            <!-- <img src="path_to_your_image_here" alt="Process Flow" class="w-full rounded-lg"> -->
+        </div>
+
+        <!-- Benefits -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+            <div class="flex items-start">
+                <svg class="w-6 h-6 text-blue-500 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <p>Reduce Manual Errors</p>
+            </div>
+            <div class="flex items-start">
+                <svg class="w-6 h-6 text-blue-500 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <p>Save Time</p>
+            </div>
+            <div class="flex items-start">
+                <svg class="w-6 h-6 text-blue-500 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <p>Get Accurate Comparisons</p>
+            </div>
+        </div>
+		</div>
+      </main>
+      <!-- Pricing Section -->
+      <section id="pricingSection" class="container mx-auto py-10 anchor-offset">
+         <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
+            <div class="text-center">
+               <h2 class="text-3xl font-bold mb-4">Get Started</h2>
+               <p class="text-gray-600 mb-8">Pricing built for hotels of all sizes.</p>
+            </div>
+            <!-- Pricing Card -->
+            <div class="max-w-md mx-auto bg-blue-50 rounded p-6 shadow-md">
+               <h3 class="text-xl font-bold text-center mb-4">Hotel Recon (Popular)</h3>
+               <p class="text-gray-600 mb-6">Let GM GO generate detailed notes and structured information for every OTA reservations, automatically.</p>
+               <ul class="list-disc pl-5 mb-6">
+                  <li class="mb-2">Generative Feedback</li>
+                  <li class="mb-2">Generative Feedback</li>
+                  <li class="mb-2">Generative Feedback</li>
+               </ul>
+               <div class="text-center mb-6">
+                  <span class="text-3xl font-bold">$25</span>
+                  <span class="text-gray-600">/ client / month</span>
+               </div>
+               <div class="text-center">
+					<a class="bg-blue-500 text-white px-5 py-2 rounded hover:bg-blue-600 ml-4" href="https://calendly.com/meet-pateel/30min" role="button" target="_blank" rel="noopener noreferrer">Book a Demo</a>
+				</div>
+            </div>
+         </div>
+      </section>
+      <!-- Contact Us Section -->
+      <section id="contactSection" class="container mx-auto py-10 anchor-offset">
+         <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
+            <!-- Heading -->
+            <div class="text-center">
+               <h1 class="text-4xl mb-6">Get in touch with us</h1>
+            </div>
+            <!-- Contact Form -->
+            <div class="max-w-md mx-auto bg-blue-50 rounded p-6 shadow-md">
+               <h2 class="text-2xl mb-4">Drop us a message</h2>
+               <p class="text-gray-600 mb-6">We will get back to you as soon as possible.</p>
+               <form>
+                  <div class="mb-4">
+                     <input type="text" placeholder="Full Name" class="w-full p-3 border rounded-md">
+                  </div>
+                  <div class="mb-4">
+                     <input type="text" placeholder="Title" class="w-full p-3 border rounded-md">
+                  </div>
+                  <div class="mb-4">
+                     <input type="email" placeholder="Work Email" class="w-full p-3 border rounded-md">
+                  </div>
+                  <div class="mb-4">
+                     <input type="text" placeholder="Subject" class="w-full p-3 border rounded-md">
+                  </div>
+                  <div class="mb-6">
+                     <textarea placeholder="Message" rows="4" class="w-full p-3 border rounded-md"></textarea>
+                  </div>
+                  <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white w-full p-3 rounded-md">Send</button>
+               </form>
+            </div>
+         </div>
+      </section>
+      <!-- JavaScript -->
+      <script>
+         const menuToggle = document.getElementById('menuToggle');
+         const navMenu = document.getElementById('navMenu');
+         
+         // Toggle menu visibility when menuToggle is clicked
+         menuToggle.addEventListener('click', function() {
+         	navMenu.classList.toggle('hidden');
+         });
+         
+         // Hide the navMenu when a menu item is clicked
+         const navLinks = navMenu.querySelectorAll('a');
+         navLinks.forEach(link => {
+         	link.addEventListener('click', function() {
+         		navMenu.classList.add('hidden'); // Hide menu when a link is clicked
+         	});
+         });
+         
+         // Optional: You can also hide the navMenu when the "Book a Demo" button inside it is clicked
+         const navButton = navMenu.querySelector('button');
+         navButton.addEventListener('click', function() {
+         	navMenu.classList.add('hidden');
+         });
+         
+      </script>
+   </body>
+</html>
