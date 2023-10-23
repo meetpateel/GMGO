@@ -5,31 +5,88 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
       <title>GM GO - HMS</title>
-      <style>
-         html {
-         scroll-behavior: smooth;
-         }
-         header {
-         position: fixed;
-         top: 0;
-         left: 0;
-         width: 100%;
-         z-index: 1000;
-         background-color: white;
-         }
-         body {
-         padding-top: 70px;
-         }
-         .anchor-offset:before {
-         display: block;
-         content: " ";
-         margin-top: -70px;
-         height: 70px;
-         visibility: hidden;
-         pointer-events: none;
-         }
-      </style>
-   </head>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: #FFE8D6; /* Soft orange for navbar */
+        }
+
+        body {
+            padding-top: 80px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #FFF6EB; /* Soft cream for main background */
+        }
+
+        .anchor-offset:before {
+            display: block;
+            content: " ";
+            margin-top: -80px;
+            height: 80px;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card, .contact-section {
+            background-color: #FFEDD9; /* Slightly darker shade for cards and sections */
+            border-radius: 8px; /* Rounded corners for a softer look */
+        }
+
+        .cta-button {
+            background-color: #FFA500; /* Strong orange for CTAs */
+        }
+#menuToggle.active {
+    border: 2px solid orange;
+    border-radius: 5px; /* Optional: adds rounded corners to the border */
+}
+.hamburger .line {
+    width: 25px; /* Adjust as needed */
+    height: 2px;
+    background-color: #333; /* Your default color */
+    margin: 3px 0;
+    transition: all 0.3s;
+}
+
+.hamburger.active .line1 {
+    transform: rotate(45deg) translate(5px, 5px);
+    background-color: orange;
+}
+
+.hamburger.active .line2 {
+    transform: rotate(-45deg) translate(5px, -5px);
+    background-color: orange;
+}
+
+
+    </style>
+  </head>
    <body class="bg-gray-200">
       <!-- Header -->
       <header class="bg-white p-5 shadow-md fixed top-0 left-0 w-full z-50">
@@ -46,24 +103,26 @@
                   <a href="#pricingSection" class="text-blue-500 hover:text-blue-600">Pricing</a>
                   <a href="#contactSection" class="text-blue-500 hover:text-blue-600">Contact</a>
                 </nav>
-				<a class="bg-blue-500 text-white px-5 py-2 rounded hover:bg-blue-600 ml-4" href="https://calendly.com/meet-pateel/30min" role="button" target="_blank" rel="noopener noreferrer">Book a Demo</a>
+				<a class="cta-button text-white px-5 py-2 rounded ml-4" href="https://calendly.com/meet-pateel/30min" role="button" target="_blank" rel="noopener noreferrer">Book a Demo</a>
 			</div>
             <!-- Mobile Hamburger Menu -->
-            <button id="menuToggle" class="md:hidden p-2">
+            <button id="menuToggle" class="hamburger md:hidden p-2">
+			    <div class="menu-icon">
                <div class="w-6 h-0.5 bg-blue-500 mb-1.5"></div>
                <div class="w-6 h-0.5 bg-blue-500 mb-1.5"></div>
                <div class="w-6 h-0.5 bg-blue-500"></div>
+			   
+			   </div>
             </button>
          </div>
          <!-- Mobile Navigation Menu -->
-         <nav id="navMenu" class="hidden md:hidden w-full mt-4 transition-all duration-300">
-            <a href="#homeSection" class="block text-blue-500 hover:text-blue-600 mb-4 text-center">Home</a>
-            <a href="#pricingSection" class="block text-blue-500 hover:text-blue-600 mb-4 text-center">Pricing</a>
-            <a href="#contactSection" class="block text-blue-500 hover:text-blue-600 mb-4 text-center">Contact</a>
-                           <div class="text-center">
-			<a class="bg-blue-500 text-white px-5 py-2 rounded hover:bg-blue-600 w-full mb-4" href="https://calendly.com/meet-pateel/30min" role="button" target="_blank" rel="noopener noreferrer">Book a Demo</a>
-			</div>
-		 </nav>
+			<nav id="navMenu" class="hidden md:hidden w-full mt-4 transition-all duration-300">
+				<a href="#homeSection" class="block text-blue-500 hover:text-blue-600 mb-4">Home</a>
+				<a href="#pricingSection" class="block text-blue-500 hover:text-blue-600 mb-4">Pricing</a>
+				<a href="#contactSection" class="block text-blue-500 hover:text-blue-600 mb-4">Contact</a>
+				<a class="cta-button block text-white py-2 text-center rounded w-full mb-4" style="width:100%;" href="https://calendly.com/meet-pateel/30min" role="button" target="_blank" rel="noopener noreferrer">Book a Demo</a>
+			</nav>
+
       </header>
       <!-- Main Content -->
       <main id="homeSection"class="container mx-auto mt-10 p-4 sm:p-5 anchor-offset">
@@ -101,10 +160,13 @@
                 <p>Get Accurate Comparisons</p>
             </div>
         </div>
+		
 		</div>
       </main>
+	  
+	  
       <!-- Pricing Section -->
-      <section id="pricingSection" class="container mx-auto py-10 anchor-offset">
+      <section id="pricingSection" class="container mx-auto mt-10 p-4 sm:p-5 anchor-offset">
          <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
             <div class="text-center">
                <h2 class="text-3xl font-bold mb-4">Get Started</h2>
@@ -124,13 +186,13 @@
                   <span class="text-gray-600">/ client / month</span>
                </div>
                <div class="text-center">
-					<a class="bg-blue-500 text-white px-5 py-2 rounded hover:bg-blue-600 ml-4" href="https://calendly.com/meet-pateel/30min" role="button" target="_blank" rel="noopener noreferrer">Book a Demo</a>
+					<a class="cta-button text-white px-5 py-2 rounded ml-4" href="https://calendly.com/meet-pateel/30min" role="button" target="_blank" rel="noopener noreferrer">Book a Demo</a>
 				</div>
             </div>
          </div>
       </section>
       <!-- Contact Us Section -->
-      <section id="contactSection" class="container mx-auto py-10 anchor-offset">
+      <section id="contactSection" class="container mx-auto mt-10 p-4 sm:p-5 anchor-offset">
          <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
             <!-- Heading -->
             <div class="text-center">
@@ -156,8 +218,10 @@
                   <div class="mb-6">
                      <textarea placeholder="Message" rows="4" class="w-full p-3 border rounded-md"></textarea>
                   </div>
-                  <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white w-full p-3 rounded-md">Send</button>
-               </form>
+				  <div class="text-center">
+					<a class="cta-button text-white px-5 py-2 rounded ml-4" href="https://calendly.com/meet-pateel/30min" role="button" target="_blank" rel="noopener noreferrer">Submit</a>
+				</div>
+			   </form>
             </div>
          </div>
       </section>
@@ -168,7 +232,9 @@
          
          // Toggle menu visibility when menuToggle is clicked
          menuToggle.addEventListener('click', function() {
-         	navMenu.classList.toggle('hidden');
+         	menuToggle.classList.toggle('active');
+			navMenu.classList.toggle('hidden');
+			
          });
          
          // Hide the navMenu when a menu item is clicked
