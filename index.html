@@ -5,9 +5,10 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
       <title>GM GO - HMS</title>
-    <style>
+        <style>
         html {
             scroll-behavior: smooth;
+            font-family: sans-serif;  /* Font set to sans-serif */
         }
 
         header {
@@ -21,7 +22,6 @@
 
         body {
             padding-top: 80px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #FFF6EB; /* Soft cream for main background */
         }
 
@@ -62,28 +62,27 @@
         .cta-button {
             background-color: #FFA500; /* Strong orange for CTAs */
         }
-#menuToggle.active {
-    border: 2px solid orange;
-    border-radius: 5px; /* Optional: adds rounded corners to the border */
-}
-.hamburger .line {
-    width: 25px; /* Adjust as needed */
-    height: 2px;
-    background-color: #333; /* Your default color */
-    margin: 3px 0;
-    transition: all 0.3s;
-}
+        #menuToggle.active {
+            border: 2px solid orange;
+            border-radius: 5px; /* Optional: adds rounded corners to the border */
+        }
+        .hamburger .line {
+            width: 25px; /* Adjust as needed */
+            height: 2px;
+            background-color: #333; /* Your default color */
+            margin: 3px 0;
+            transition: all 0.3s;
+        }
 
-.hamburger.active .line1 {
-    transform: rotate(45deg) translate(5px, 5px);
-    background-color: orange;
-}
+        .hamburger.active .line1 {
+            transform: rotate(45deg) translate(5px, 5px);
+            background-color: orange;
+        }
 
-.hamburger.active .line2 {
-    transform: rotate(-45deg) translate(5px, -5px);
-    background-color: orange;
-}
-
+        .hamburger.active .line2 {
+            transform: rotate(-45deg) translate(5px, -5px);
+            background-color: orange;
+        }
 
     </style>
   </head>
@@ -242,6 +241,8 @@
          navLinks.forEach(link => {
          	link.addEventListener('click', function() {
          		navMenu.classList.add('hidden'); // Hide menu when a link is clicked
+				const menuToggle = document.getElementById('menuToggle');
+				menuToggle.classList.toggle('active');
          	});
          });
          
