@@ -1,125 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+		<title>ResRecon - GM Go</title>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"> <!-- Added Inter font for a modern touch -->
+		<style>
+			html {
+				scroll-behavior: smooth;
+				font-family: sans-serif;  /* Font set to sans-serif */
+			}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <title>StayStreamline - HMS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"> <!-- Added Inter font for a modern touch -->
-    <style>
-		html {
-			scroll-behavior: smooth;
-			font-family: sans-serif;  /* Font set to sans-serif */
-		}
+			body {
+				padding-top: 50px;
+			}
 
-		body {
-			padding-top: 80px;
-		}
+			h1, h2, h3, p {
+				margin-bottom: 1rem;
+			}
 
-		h1, h2, h3, p {
-			margin-bottom: 1rem;
-		}
+			.pricing-card, .contact-section {
+				background-color: #FFEDD9; /* Slightly darker shade for cards and sections */
+				border-radius: 8px; /* Rounded corners for a softer look */
+			}
 
-		.pricing-card, .contact-section {
-			background-color: #FFEDD9; /* Slightly darker shade for cards and sections */
-			border-radius: 8px; /* Rounded corners for a softer look */
-		}
+			.cta-button {
+				background-color: #FFA500; /* Strong orange for CTAs */
+			}
 
-		.cta-button {
-			background-color: #FFA500; /* Strong orange for CTAs */
-		}
+			/* Styles for the header */
+			header {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				z-index: 1000;
+				background-color: #FFFFFF;  /* Solid white background */
+				transition: box-shadow 0.3s ease; /* smooth transition */
+			}
 
-		/* Styles for the header */
-		header {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			z-index: 1000;
-			background-color: #FFFFFF;  /* Solid white background */
-			transition: box-shadow 0.3s ease; /* smooth transition */
-		}
+			header a, header .menu-icon div {
+				color: #000000;  /* Black text */
+			}
 
-		header a, header .menu-icon div {
-			color: #000000;  /* Black text */
-		}
+			/* Add shadow when class .scrolled is added to the header */
+			header.scrolled {
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* adjust as needed */
+			}
+			section::before {
+				content: "";
+				display: block;
+				height: 80px;  /* height of your fixed header */
+				margin-top: -80px;  /* negative value of the height */
+				visibility: hidden;
+				pointer-events: none;
+			}
+			.anchor-offset:before {
+				content: "";
+				display: block;
+				height: 80px; /* Adjust this height according to your navigation bar's height */
+				margin: -80px 0 0; /* This negative margin will pull the content up by the same amount */
+				visibility: hidden;
+				pointer-events: none;
+			}
+			h1, h2, h3, p {
+				margin-bottom: 1.5rem; /* Increased spacing */
+			}
 
-		/* Add shadow when class .scrolled is added to the header */
-		header.scrolled {
-			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* adjust as needed */
-		}
+			.cta-button {
+				background-color: #FFA500;
+				transition: all 0.3s; /* Smooth transition */
+			}
 
-        .anchor-offset:before {
-            display: block;
-            content: " ";
-            margin-top: -80px;
-            height: 80px;
-            visibility: hidden;
-            pointer-events: none;
-        }
+			.cta-button:hover {
+				background-color: #FF8C00; /* Slight darkening on hover */
+				transform: translateY(-2px); /* Subtle lift on hover */
+			}
 
-        h1, h2, h3, p {
-            margin-bottom: 1.5rem; /* Increased spacing */
-        }
+			#menuToggle.active {
+				border: 2px solid #FFA500; /* Using the CTA color for consistency */
+				border-radius: 5px;
+			}
 
-        .cta-button {
-            background-color: #FFA500;
-            transition: all 0.3s; /* Smooth transition */
-        }
+			.hamburger .line {
+				width: 25px;
+				height: 2px;
+				background-color: #333333;
+				margin: 3px 0;
+				transition: all 0.3s;
+			}
 
-        .cta-button:hover {
-            background-color: #FF8C00; /* Slight darkening on hover */
-            transform: translateY(-2px); /* Subtle lift on hover */
-        }
+			.hamburger.active .line1, .hamburger.active .line2 {
+				background-color: #FFA500; /* Using the CTA color */
+			}
 
-        #menuToggle.active {
-            border: 2px solid #FFA500; /* Using the CTA color for consistency */
-            border-radius: 5px;
-        }
+			/* Animation for the main content to make it appear smoothly */
+			@keyframes fadeInUp {
+				from {
+					opacity: 0;
+					transform: translateY(20px);
+				}
 
-        .hamburger .line {
-            width: 25px;
-            height: 2px;
-            background-color: #333333;
-            margin: 3px 0;
-            transition: all 0.3s;
-        }
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
 
-        .hamburger.active .line1, .hamburger.active .line2 {
-            background-color: #FFA500; /* Using the CTA color */
-        }
+			main, section {
+				animation: fadeInUp 1s forwards;
+			}
 
-        /* Animation for the main content to make it appear smoothly */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        main {
-            animation: fadeInUp 0.5s forwards;
-        }
-
-        /* Rounded edges for the input fields in the contact form for a modern touch */
-        input, textarea {
-            border-radius: 8px;
-        }
-    </style>
-</head>
+			/* Rounded edges for the input fields in the contact form for a modern touch */
+			input, textarea {
+				border-radius: 8px;
+			}
+		</style>
+	</head>
 
    <body>
     <!-- Header -->
     <header class="bg-white p-5 fixed top-0 left-0 w-full z-50">
         <div class="container mx-auto flex flex-wrap justify-between items-center">
             <div class="flex items-center space-x-2">
-                <a href="./index.html" aria-current="page" class="text-2xl font-semibold text-blue-500 hover:text-blue-600" aria-label="home">StayStreamline</a>
+                <a href="./index.html" aria-current="page" class="text-2xl font-semibold text-blue-500 hover:text-blue-600" aria-label="home">ResRecon</a>
             </div>
             <!-- Desktop Navigation Links -->
             <div class="flex items-center space-x-4 hidden md:flex">
@@ -148,14 +153,17 @@
         </nav>
     </header>
     <!-- Main Content -->
-    <main id="homeSection" class="container mx-auto mt-10 p-4 sm:p-5 anchor-offset">
+    <main id="homeSection" class="container mx-auto p-4 sm:p-5 anchor-offset pt-20 mt-[-20]">
         <!-- Home Section Content -->
         <div class="bg-white p-8 rounded-lg shadow-md">
             <!-- Header and Sub-header -->
-            <div class="text-center mb-6">
-                <h1 class="text-4xl font-bold">Streamline Your Reservations</h1>
-                <p class="text-gray-600 mt-4 text-lg">Automate and compare with your PMS for accurate results.</p>
-            </div>
+			<div class="text-center mb-6">
+				<h1 class="text-4xl font-bold">Perfect Your Bookings</h1>
+				<p class="text-gray-600 mt-4 text-lg">Automatically match third-party reservations to your PMS. Effortless. Accurate. Streamlined.</p>
+			</div>
+			<div class="mt-8 text-center">
+				<a class="cta-button block text-white py-2 text-center rounded w-full mb-4 hover:shadow-lg" href="https://calendly.com/meet-pateel/30min" role="button" target="_blank" rel="noopener noreferrer">Get Started</a>
+			</div>
             <!-- Benefits -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                 <div class="flex flex-col items-center">
@@ -179,9 +187,46 @@
             </div>
         </div>
     </main>
+	
+	<!-- How It Works Section -->
+	<section class="container mx-auto mt-10 p-4 sm:p-5 anchor-offset pt-20 mt-[-20]">
+		<div class="bg-white rounded-lg shadow-md p-8">
+			<!-- Section Heading -->
+			<h2 class="text-3xl font-bold text-center mb-8">How It Works</h2>
+
+			<div class="flex flex-wrap justify-center items-center gap-4">
+				<!-- First Column -->
+				<div class="flex flex-col items-center w-full md:w-1/4">
+					<img src="https://www.query.ai/wp-content/uploads/2022/12/query-icons_2022-12-08-52.svg" alt="cybersecurity data repository" class="mb-4 w-32 h-32">
+					<h4 class="text-center mb-4">Leave your data in <strong class="text-green-500">your technologies</strong>…</h4>
+					<p class="text-center">Cloud Services <br>SaaS Apps <br>On-prem Infrastructure</p>
+				</div>
+				<!-- Arrow -->
+				<div class="hidden md:block w-16">
+					<img src="https://www.query.ai/wp-content/uploads/2022/12/arrow.svg" alt="horizontal arrow">
+				</div>
+				<!-- Second Column -->
+				<div class="flex flex-col items-center w-full md:w-1/4">
+					<img src="https://www.query.ai/wp-content/uploads/2022/12/query-icons_2022-12-08-08-3.svg" alt="federated search api integration" class="mb-4 w-32 h-32">
+					<h4 class="text-center mb-4">Query <strong class="text-blue-400">manages</strong>…</h4>
+					<p class="text-center">API Integrations <br>Search Translations <br>Normalization of Results</p>
+				</div>
+				<!-- Arrow -->
+				<div class="hidden md:block w-16">
+					<img src="https://www.query.ai/wp-content/uploads/2022/12/arrow.svg" alt="horizontal arrow">
+				</div>
+				<!-- Third Column -->
+				<div class="flex flex-col items-center w-full md:w-1/4">
+					<img src="https://www.query.ai/wp-content/uploads/2022/12/query-icons_2022-12-08-49-2.svg" alt="effective investigation team" class="mb-4 w-32 h-32">
+					<h4 class="text-center mb-4">Your team <strong class="text-orange-500">gets</strong>…</h4>
+					<p class="text-center">More Visibility <br>Expanded Context <br>Fast Answers & Insights</p>
+				</div>
+			</div>
+		</div>
+	</section>
   <!-- Pricing Section -->
-<section id="pricingSection" class="container mx-auto mt-16 p-4 sm:p-5 anchor-offset">
-    <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
+	<section id="pricingSection" class="container mx-auto mt-16 p-4 sm:p-5 anchor-offset pt-20 mt-[-20]">
+		<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
         <div class="text-center">
             <h2 class="text-3xl font-bold mb-8">Get Started</h2>
         </div>
@@ -203,11 +248,11 @@
             </div>
         </div>
     </div>
-</section>
+	</section>
 
-<!-- Contact Us Section -->
-<section id="contactSection" class="container mx-auto mt-16 p-4 sm:p-5 anchor-offset">
-    <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
+	<!-- Contact Us Section -->
+	<section id="contactSection" class="container mx-auto mt-16 p-4 sm:p-5 anchor-offset pt-20 mt-[-20]">
+		<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
         <!-- Heading -->
         <div class="text-center">
             <h1 class="text-4xl mb-8">Get in Touch</h1>
@@ -238,57 +283,80 @@
             </form>
         </div>
     </div>
-</section>
-<!-- Footer Section -->
-<footer class="mt-16 bg-gray-900 text-white py-6">
-    <div class="container mx-auto text-center">
+	</section>
+	<!-- Footer Section -->
+	<footer class="mt-16 bg-gray-900 text-white py-6">
+		<div class="container mx-auto text-center">
         <div class="mb-4">
-            <h2 class="text-2xl font-bold">StayStreamline - HMS</h2>
+            <h2 class="text-2xl font-bold">GM Go</h2>
         </div>
         <div class="flex justify-center space-x-6 mb-4">
             <a href="#" class="hover:text-blue-500 transition-colors duration-300">Terms and Conditions</a>
             <a href="#" class="hover:text-blue-500 transition-colors duration-300">Privacy Policy</a>
         </div>
-        <p>&copy; 2023 StayStreamline - HMS. All rights reserved.</p>
+        <p>&copy; 2023 GM Go - HMS. All rights reserved.</p>
     </div>
-</footer>
+	</footer>
 
       <!-- JavaScript -->
       <script>
-         const menuToggle = document.getElementById('menuToggle');
-         const navMenu = document.getElementById('navMenu');
-         
-         // Toggle menu visibility when menuToggle is clicked
-         menuToggle.addEventListener('click', function() {
-         	menuToggle.classList.toggle('active');
-			navMenu.classList.toggle('hidden');
-			
-         });
-         
-         // Hide the navMenu when a menu item is clicked
-         const navLinks = navMenu.querySelectorAll('a');
-         navLinks.forEach(link => {
-         	link.addEventListener('click', function() {
-         		navMenu.classList.add('hidden'); // Hide menu when a link is clicked
-				const menuToggle = document.getElementById('menuToggle');
-				menuToggle.classList.toggle('active');
-         	});
-         });
-         
-         // Optional: You can also hide the navMenu when the "Book a Demo" button inside it is clicked
-         const navButton = navMenu.querySelector('button');
-         navButton.addEventListener('click', function() {
-         	navMenu.classList.add('hidden');
-         });
-         window.addEventListener('scroll', function() {
+	  document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('header');
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    const navLinks = navMenu.querySelectorAll('a');
+    const navButton = navMenu.querySelector('button');
 
-    if (window.scrollY > 0) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
+    // Toggle menu visibility when menuToggle is clicked
+    menuToggle.addEventListener('click', function() {
+        menuToggle.classList.toggle('active');
+        navMenu.classList.toggle('hidden');
+    });
+
+    // Hide the navMenu when a menu item is clicked
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            navMenu.classList.add('hidden');
+            menuToggle.classList.remove('active');
+        });
+    });
+
+    // Optional: Hide the navMenu when the "Book a Demo" button inside it is clicked
+    navButton.addEventListener('click', function() {
+        navMenu.classList.add('hidden');
+    });
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 0) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Adjust the scroll position after clicking an anchor link
+	document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+		anchor.addEventListener('click', function(e) {
+			e.preventDefault();
+			
+			// Get the height of the navbar
+			const navbarHeight = document.querySelector('header').offsetHeight;
+
+			// Get the section to scroll to
+			const section = document.querySelector(this.getAttribute('href'));
+
+			// Calculate the position
+			const position = section.offsetTop - navbarHeight+30;
+
+			// Scroll to the section, offset by the navbar height
+			window.scrollTo({
+				top: position,
+				behavior: 'smooth'
+			});
+		});
+	});
 });
+
       </script>
    </body>
 </html>
