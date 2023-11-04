@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Econo Lodge North</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .blurred-bg {
+            background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 0, 0, 0.2) 100%);
+            backdrop-filter: blur(16px);
+        }
+		 @media (hover: hover) {
+            .card:hover {
+                transform: scale(1.05);
+                transition: transform 0.3s;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans leading-normal tracking-normal blurred-bg">
+    <div class="container mx-auto rounded px-8 pt-6 pb-12 mb-4">
+		<div class="my-4">
+            <img src="https://logowik.com/content/uploads/images/econo-lodge-hotel4160.logowik.com.webp" alt="Profile" class="rounded-full h-24 w-24 mx-auto">
+			<h1 class="text-center text-xl font-bold my-2 py-6">@Econo Lodge North</h1>
+        </div>
+        <div class="flex flex-col items-center">
+            <div class="w-full max-w-md mb-4 card">
+               <a href="https://www.google.com/travel/hotels/entity/CgsIhNyp1fvvsLn5ARAB/reviews?q=econolodge%20sioux%20falls%20sd&g2lb=2502548%2C2503771%2C2503781%2C2504374%2C4258168%2C4270442%2C4284970%2C4291517%2C4597339%2C4757164%2C4814050%2C4874190%2C4893075%2C4924070%2C496&utm_campaign=sharing&utm_medium=link&utm_source=htls&ved=0CAAQ5JsGahcKEwiQw9S42qqCAxUAAAAAHQAAAAAQBA" class="block p-4 bg-white rounded hover:bg-blue-100 transition duration-150 flex items-center" target="_blank" rel="noopener noreferrer">
+                    <img src="https://www.vectorlogo.zone/logos/google/google-icon.svg" alt="Google Logo" class="h-8 w-8 mr-4">
+                    <span class="text-center text-gray-900 font-medium">Google</span>
+                </a>
+            </div>
+			<div class="w-full max-w-md mb-4 card">
+               <a href="https://www.google.com/travel/hotels/entity/CgsIhNyp1fvvsLn5ARAB/reviews?q=econolodge%20sioux%20falls%20sd&g2lb=2502548%2C2503771%2C2503781%2C2504374%2C4258168%2C4270442%2C4284970%2C4291517%2C4597339%2C4757164%2C4814050%2C4874190%2C4893075%2C4924070%2C496&utm_campaign=sharing&utm_medium=link&utm_source=htls&ved=0CAAQ5JsGahcKEwiQw9S42qqCAxUAAAAAHQAAAAAQBA" class="block p-4 bg-white rounded hover:bg-blue-100 transition duration-150 flex items-center" target="_blank" rel="noopener noreferrer">
+                    <img src="https://www.vectorlogo.zone/logos/tripadvisor/tripadvisor-icon.svg" alt="TripAdvisor Logo" class="h-8 w-8 mr-4">
+                    <span class="text-center text-gray-900 font-medium">Tripadvisor</span>
+                </a>
+            </div>
+			<div class="w-full max-w-md mb-4 card">
+               <a href="https://www.google.com/travel/hotels/entity/CgsIhNyp1fvvsLn5ARAB/reviews?q=econolodge%20sioux%20falls%20sd&g2lb=2502548%2C2503771%2C2503781%2C2504374%2C4258168%2C4270442%2C4284970%2C4291517%2C4597339%2C4757164%2C4814050%2C4874190%2C4893075%2C4924070%2C496&utm_campaign=sharing&utm_medium=link&utm_source=htls&ved=0CAAQ5JsGahcKEwiQw9S42qqCAxUAAAAAHQAAAAAQBA" class="block p-4 bg-white rounded hover:bg-blue-100 transition duration-150 flex items-center" target="_blank" rel="noopener noreferrer">
+                    <img src="https://www.vectorlogo.zone/logos/booking/booking-icon.svg" alt="Booking Logo" class="h-8 w-8 mr-4">
+                    <span class="text-center text-gray-900 font-medium">Booking</span>
+                </a>
+            </div>
+			
+			<div class="text-center mt-8">
+				<p class="mt-4 text-md text-gray-600">We appreciate your reviews. Thank you for helping us grow!</p>
+			</div>
+        </div>
+    </div>
+</body>
+</html>
